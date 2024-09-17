@@ -1,4 +1,7 @@
 #1. class Patient {id, name}
+import json
+
+
 class Patient:
     def __init__(self, id, name):
         self.id = id 
@@ -77,6 +80,10 @@ your choice:'''))
         id =int(input('Enter patient id:'))
         name=input ('enter the name: ')
         patient_updateById(id , name)
+    #elif choice==6:
+    #  with open('patient_dict.json','w') as pt_db:
+    #     json.dump(patient_add,pt_db)
+    #     print('written file succefull') 
     
     elif choice == 7:
         pass 

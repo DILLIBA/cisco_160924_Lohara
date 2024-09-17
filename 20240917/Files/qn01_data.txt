@@ -1,0 +1,2 @@
+list=['apple', 'grapes', 'mango', 'banana']
+list=('apple', 'grapes', 'mango', 'banana')
