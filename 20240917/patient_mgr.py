@@ -28,6 +28,25 @@ def patient_remove(id):
         #end if 
     #end for 
     print(f'No such id {id}')
+
+# display by id
+def patient_displayById(id):
+    global patients
+    for patient in patients:
+     if patient.id == id:
+      print(patients)
+     else:
+      print("pateint not found")
+def patient_updateById(id , name):
+     global patients
+     for patient in patients:
+         if patient.id == id:
+             print(patient)
+             if ('Are you sure to update the patient?(yes/no):').lower == 'yes':
+                patient.name = name
+                print('patient details updated succesfully!')
+                return
+            
 #5. patient_display()
 def patient_display():
     global patients
@@ -38,6 +57,8 @@ def menu():
     choice = int(input('''1-add patient
 2-delete patient by id
 3-display all patients
+4-display by Id
+5-update by Id
 7-end                       
 your choice:'''))
     if choice == 1:
@@ -49,6 +70,14 @@ your choice:'''))
         patient_remove(id)
     elif choice == 3:
         patient_display()
+    elif choice == 4:
+        id =int(input('Enter patient id:'))
+        patient_displayById(id)
+    elif choice == 5:
+        id =int(input('Enter patient id:'))
+        name=input ('enter the name: ')
+        patient_updateById(id , name)
+    
     elif choice == 7:
         pass 
     else:
