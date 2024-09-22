@@ -91,8 +91,8 @@ def send_email_alert(subject, message, to_email):
     import smtplib                    # Import only needed for this function
     from email.mime.text import MIMEText   # Import only needed for this function
     
-    from_email = 'kadadinikhil2000@gmail.com'   # Sender email
-    password = 'eojh cako hdit rwhn'             # Replace with sender email password (use an app password if using Gmail)
+    from_email = 'dillipdilliyadhav28@gmail.com'   # Sender email
+    password = 'kobp bdpv tkdb mzvx'             # Replace with sender email password (use an app password if using Gmail)
     
     msg = MIMEText(message)                     # Create the email body
     msg['Subject'] = subject                    # Set the email subject
@@ -103,7 +103,7 @@ def send_email_alert(subject, message, to_email):
         # Connect to Gmail's SMTP server using SSL encryption
         server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
         server.login(from_email, password)      # Log in to the SMTP server
-        server.sendmail(from_email, to_email, msg = "Nikhil sent") # Corrected line for sending the email
+        server.sendmail(from_email, to_email, msg = "DILLI sent") # Corrected line for sending the email
         server.quit()  # Close the SMTP server connection
         print("Email sent successfully!")
     except Exception as e:
@@ -124,11 +124,11 @@ def process_transactions(account_id, deposit_amount, withdraw_amount):
 
 # Step 9: Run Concurrent Tasks (Email and File Transfer)
 def run_concurrent_tasks():
-    t1 = threading.Thread(target=transfer_file, args=('statement.txt', 'backup_statement.txt'))
+    t1 = threading.Thread(target=transfer_file, args=('statement1.txt','backup_stament.txt'))
     t2 = threading.Thread(target=send_email_alert, args=(
         'Account Balance Update',                
-        'Hello Nikhil, your account balance has been updated.',  
-        'kaldaterohit2611@gmail.com'))
+        'Hello dilli , your account balance has been updated.',  
+        'dillipdilliyadhav28@gmail.com'))
 
     t1.start()
     t2.start()
@@ -138,16 +138,21 @@ def run_concurrent_tasks():
 
 # Initialize database and add an account for demonstration
 create_database()
-add_account("Nikhil Kadadi's Account", 1000.0)
+add_account("K DILLI BABU's Account", 1000.0)
 
 # Check balance before transactions
 print("Initial Balance:", check_balance(1))
 
+
+
 # Step 8: Run deposit and withdraw concurrently using multithreading
-process_transactions(1, 500.0, 200.0)  # Deposit 500 and Withdraw 200 concurrently
+#process_transactions(1, 500.0, 200.0)  # Deposit 500 and Withdraw 200 concurrently
 
 # Check balance after transactions
 print("Balance after transactions:", check_balance(1))
 
 # Step 9: Run file transfer and email alert concurrently
 run_concurrent_tasks()
+
+
+ 
